@@ -1,7 +1,4 @@
 <?php
-	//Start session
-	session_start();
-	//Connect to mysql server
 	include('include/connect.php');
 
 	$error='';
