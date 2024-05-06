@@ -105,4 +105,106 @@
       header('location: account.php');
     }
   }
+
+  if (isset($_POST['departmentUpdate'])){
+    $con->next_result();
+    $id           = $_POST['departments_id'];
+    $departmentData  = [];
+    $query  = mysqli_query($con, "SELECT * FROM department WHERE id='$id'");
+    if (mysqli_num_rows($query) > 0){
+      while ($row = mysqli_fetch_array($query)){
+        array_push($departmentData, $row);
+        header('content-type: application/json');
+        echo json_encode($departmentData);
+      }
+    }
+  }
+
+  if (isset($_POST['department_update'])){
+    session_start();
+    $con->next_result();
+    $id         = $_POST['departments_id_edit'];
+    $dept_name  = strtoupper($_POST['departments_dept_name_edit']);
+    $dept_id    = $_POST['departments_dept_id_edit'];
+    $status     = $_POST['departments_dept_status_edit'];
+    $query  = "UPDATE department SET dept_name='$dept_name', dept_id='$dept_id', status='$status' WHERE id='$id'";
+    $result = mysqli_query($con, $query);
+    if ($result){
+      $_SESSION['result'] = "$dept_name department updated successfully!";
+      header('location: department.php');
+    }
+    else {
+      $_SESSION['failed'] = "$dept_name department update failed.";
+      header('location: department.php');
+    }
+  }
+
+  if (isset($_POST['department_create'])){
+    session_start();
+    $con->next_result();
+    $dept_name = strtoupper($_POST['departments_dept_name']);
+    $dept_id   = $_POST['departments_dept_id'];
+    $query  = "INSERT INTO department (dept_name, dept_id, status) VALUES ('$dept_name', '$dept_id', '1')";
+    $result = mysqli_query($con, $query);
+    if ($result){
+      $_SESSION['result'] = "Department created successfully!";
+      header('location: department.php');
+    }
+    else {
+      $_SESSION['failed'] = "Department creation failed.";
+      header('location: department.php');
+    }
+  }
+
+  if (isset($_POST['section_create'])){
+    session_start();
+    $con->next_result();
+    $sec_name = strtoupper($_POST['sections_name']);
+    $sec_id   = strtoupper($_POST['sections_code']);
+    $sec_dept = $_POST['sections_dept'];
+    $query  = "INSERT INTO section (sec_id, sec_name, dept_id, status) VALUES ('$sec_id', '$sec_name', '$sec_dept', '1')";
+    $result = mysqli_query($con, $query);
+    if ($result){
+      $_SESSION['result'] = "Section created successfully!";
+      header('location: section.php');
+    }
+    else {
+      $_SESSION['failed'] = "Section creation failed.";
+      header('location: section.php');
+    }
+  }
+
+  if (isset($_POST['sectionUpdate'])){
+    $con->next_result();
+    $id           = $_POST['sections_id'];
+    $sectionData  = [];
+    $query  = mysqli_query($con, "SELECT * FROM section WHERE id='$id'");
+    if (mysqli_num_rows($query) > 0){
+      while ($row = mysqli_fetch_array($query)){
+        array_push($sectionData, $row);
+        header('content-type: application/json');
+        echo json_encode($sectionData);
+      }
+    }
+  }
+
+  if (isset($_POST['section_update'])){
+    session_start();
+    $con->next_result();
+    $id         = $_POST['sections_id_edit'];
+    $sec_name   = strtoupper($_POST['sections_dept_name_edit']);
+    $sec_id     = strtoupper($_POST['sections_dept_id_edit']);
+    $dept_id    = $_POST['sections_dept_edit'];
+    $status     = $_POST['sections_dept_status_edit'];
+    $query  = "UPDATE section SET sec_name='$sec_name', sec_id='$sec_id', dept_id='$dept_id', status='$status' WHERE id='$id'";
+    $result = mysqli_query($con, $query);
+    if ($result){
+      $_SESSION['result'] = "$sec_name department updated successfully!";
+      header('location: section.php');
+    }
+    else {
+      $_SESSION['failed'] = "$sec_name department update failed.";
+      header('location: section.php');
+    }
+  }
 ?>

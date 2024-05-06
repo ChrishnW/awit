@@ -43,7 +43,7 @@
           'accounts_id':accounts_id,
         },
         success: function(response) {
-          // console.log(response);
+          console.log(response);
           $.each(response, function (Key, value){
             // console.log(value['username']);
             $('#accounts_id_edit').val(value['id']);
@@ -62,6 +62,7 @@
         }
       })
     })
+
     function resetPassword(){
       var accountresetID = document.getElementById('accounts_username_edit').value;
       $(document).ready(function () {
@@ -70,6 +71,57 @@
         $('#accountPasschange').modal('show');
       });
     }
+
+    $('.department_edit').click(function (e) {
+      e.preventDefault();
+      var departments_id = $(this).closest('tr').find('.department_id').text();
+      console.log(departments_id);
+      $.ajax({
+        method: "POST",
+        url: "code.php",
+        data: {
+          'departmentUpdate': true,
+          'departments_id':departments_id,
+        },
+        success: function(response) {
+          console.log(response);
+          $.each(response, function (Key, value){
+            console.log(value['dept_name']);
+            $('#departments_id_edit').val(value['id']);
+            $('#departments_dept_name_edit').val(value['dept_name']);
+            $('#departments_dept_id_edit').val(value['dept_id']);
+            $('#departments_dept_status_edit').val(value['status']);
+          });
+          $('#departmentUpdate').modal('show');
+        }
+      })
+    })
+
+    $('.section_edit').click(function (e) {
+      e.preventDefault();
+      var sections_id = $(this).closest('tr').find('.section_id').text();
+      console.log(sections_id);
+      $.ajax({
+        method: "POST",
+        url: "code.php",
+        data: {
+          'sectionUpdate': true,
+          'sections_id':sections_id,
+        },
+        success: function(response) {
+          console.log(response);
+          $.each(response, function (Key, value){
+            console.log(value['dept_name']);
+            $('#sections_id_edit').val(value['id']);
+            $('#sections_dept_name_edit').val(value['sec_name']);
+            $('#sections_dept_id_edit').val(value['sec_id']);
+            $('#sections_dept_edit').val(value['dept_id']);
+            $('#sections_dept_status_edit').val(value['status']);
+          });
+          $('#sectionUpdate').modal('show');
+        }
+      })
+    })
   </script>
   <?php }
   

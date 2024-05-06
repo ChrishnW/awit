@@ -319,3 +319,254 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="departmentUpdate" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content border-warning">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title text-white">Department Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="code.php" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <input type="hidden" class="form-control" name="departments_id_edit" id="departments_id_edit" required>
+              <div class="form-group">
+                <label>Name:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-users"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Department Name" class="form-control" name="departments_dept_name_edit" id="departments_dept_name_edit" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Code:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-qrcode"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Department Code" class="form-control" name="departments_dept_id_edit" id="departments_dept_id_edit" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Status:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-toggle-on"></i></i></div>
+                  </div>
+                  <select class="form-control custom-select" name="departments_dept_status_edit" id="departments_dept_status_edit">
+                    <option selected value='1'>ACTIVE</option>
+                    <option selected value='0'>INACTIVE</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="location.reload();" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" name="department_update">Update Department</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="departmentRegister" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content border-info">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title text-white">Department Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="code.php" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <input type="hidden" class="form-control" name="departments_id" id="departments_id" required>
+              <div class="form-group">
+                <label>Name:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-users"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Department Name" class="form-control" name="departments_dept_name" id="departments_dept_name" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Code:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-qrcode"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Department Code" class="form-control" name="departments_dept_id" id="departments_dept_id" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="location.reload();" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" name="department_create">Register Department</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sectionRegister" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content border-info">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title text-white">Section Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="code.php" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Name:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-users"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Section Name" class="form-control" name="sections_name" id="sections_name" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Code:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-qrcode"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Section Code" class="form-control" name="sections_code" id="sections_code" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Department:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-key"></i></div>
+                  </div>
+                  <select class="form-control custom-select" name="sections_dept" id="sections_dept">
+                    <?php
+                      $con->next_result();
+                      $sql = mysqli_query($con, "SELECT * FROM department WHERE status=1");
+                      if (mysqli_num_rows($sql) > 0) {
+                        while ($row = mysqli_fetch_assoc($sql)) { ?>
+                          <option value='<?php echo $row['dept_id'] ?>'><?php echo strtoupper($row['dept_name'])?></option>
+                        <?php }
+                      } ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="location.reload();" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" name="section_create">Register Section</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sectionUpdate" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content border-warning">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title text-white">Section Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="code.php" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <input type="hidden" class="form-control" name="sections_id_edit" id="sections_id_edit" required>
+              <div class="form-group">
+                <label>Name:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-users"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Department Name" class="form-control" name="sections_dept_name_edit" id="sections_dept_name_edit" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Code:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-qrcode"></i></div>
+                  </div>
+                  <input type="text" placeholder="Enter Department Code" class="form-control" name="sections_dept_id_edit" id="sections_dept_id_edit" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Department:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-sitemap"></i></div>
+                  </div>
+                  <select class="form-control custom-select" name="sections_dept_edit" id="sections_dept_edit">
+                    <?php
+                      $con->next_result();
+                      $sql = mysqli_query($con, "SELECT * FROM department WHERE status=1");
+                      if (mysqli_num_rows($sql) > 0) {
+                        while ($row = mysqli_fetch_assoc($sql)) { ?>
+                          <option value='<?php echo $row['dept_id'] ?>'><?php echo strtoupper($row['dept_name'])?></option>
+                        <?php }
+                      } ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"> 
+              <div class="form-group">
+                <label>Status:</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-toggle-on"></i></i></div>
+                  </div>
+                  <select class="form-control custom-select" name="sections_dept_status_edit" id="sections_dept_status_edit">
+                    <option selected value='1'>ACTIVE</option>
+                    <option selected value='0'>INACTIVE</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="location.reload();" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" name="section_update">Update Section</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
