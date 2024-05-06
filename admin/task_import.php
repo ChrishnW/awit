@@ -72,6 +72,15 @@
           </ul>
         </nav>
         <div class="container-fluid">
+          <?php if(isset($_SESSION['result']) && $_SESSION['result'] != ''){ ?>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?php echo $_SESSION['result']; ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <?php unset($_SESSION['result']);
+          } ?>
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="card border-primary shadow mb-4">
@@ -79,7 +88,7 @@
                   <h6 class="m-0 font-weight-bold text-white">Excel File</h6>
                 </div>
                 <div class="card-body">
-                  <form action="../../include/process.php" method="POST" enctype="multipart/form-data">
+                  <form action="" method="POST" enctype="multipart/form-data">
                     <input type="file" class="form-control-file" name="import_file" required/>
                     <br>
                     <a class="pull-right" href="download.php">Download Tasks Excel Template For Import</a>
