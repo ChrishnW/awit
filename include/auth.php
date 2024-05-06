@@ -1,8 +1,7 @@
 <?php
 	session_start();
 	if (!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == '')) {
-		header('../../index.php');
-		exit();
+		header('location: ../index.php');
 	} 
 	else {
 		$emp_id = $_SESSION['SESS_MEMBER_ID'];
