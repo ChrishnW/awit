@@ -6,15 +6,18 @@
 	if(isset($_POST['login'])){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
+		$hash = password_hash($password, PASSWORD_DEFAULT);
 		$result = mysqli_query($con,"SELECT * FROM accounts WHERE username='$username' AND status=1");
 		if(mysqli_num_rows($result) > 0) {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			$access = $row['access'];
 			$emp_id = $row['id'];
 			$username = $row['username'];
+
 			$hash_password = $row['password'];
 
-			if ($password != $hash_password){
+			if (!password_verify($password, $hash_password)){
+				$error	=	"Invalid Password!";
 			}
 			else{	
 				//Login Successful
@@ -30,7 +33,12 @@
 		}
 		else {
 			//Login failed
-			$error="There's an error accessing your account. Contact system admin now!";
+			$error	=	"There's an error accessing your account. Contact system admin now!";
 		}
+	}
+
+	if(isset($_POST['logout'])){
+		session_destroy();
+		header('location: ../../index.php');
 	}
 ?>

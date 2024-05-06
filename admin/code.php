@@ -91,11 +91,10 @@
   if(isset($_POST['account_reset_submit'])){
     session_start();
     $con->next_result();
-    $id             = $_POST['account_ID1'];
-    $username       = $_POST['account_USERNAME1'];
-    $password_temp  = '12345';
-    $password       = password_hash($password_temp, PASSWORD_DEFAULT);
-    $query  = "UPDATE accounts SET password='$password' WHERE id='$id'";
+    $id       = $_POST['account_ID1'];
+    $new_pass = 12345;
+    $hash_new_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+    $query  = "UPDATE accounts SET password='$hash_new_pass' WHERE username='$id'";
     $result = mysqli_query($con, $query);
     if ($result){
       $_SESSION['result'] = "Account password reset successfully!";

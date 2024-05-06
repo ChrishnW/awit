@@ -63,7 +63,7 @@
       })
     })
     function resetPassword(){
-      var accountresetID        = document.getElementById('accounts_id_edit').value;
+      var accountresetID = document.getElementById('accounts_username_edit').value;
       $(document).ready(function () {
         document.getElementById('account_ID1').value = accountresetID;
         $('#accountUpdate').modal('hide');

@@ -287,7 +287,7 @@
         </button>
       </div>
       <form action="code.php" method="post">
-        <input type="text" id="account_ID1" hidden> 
+        <input type="hidden" class="form-control" name="account_ID1" id="account_ID1" required>
         <div class="modal-body">
           <div class="modal-body">You're about to reset this account password to default. <br> Do you wish to contiue?</div>
         </div>
@@ -311,8 +311,10 @@
       </div>
       <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
       <div class="modal-footer">
+      <form action="../include/session.php" method="post">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger" href="login.html">Logout</a>
+        <button type="submit" class="btn btn-danger" name="logout">Logout</a>
+      </form>
       </div>
     </div>
   </div>
