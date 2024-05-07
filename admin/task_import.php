@@ -72,15 +72,6 @@
           </ul>
         </nav>
         <div class="container-fluid">
-          <?php if(isset($_SESSION['result']) && $_SESSION['result'] != ''){ ?>
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?php echo $_SESSION['result']; ?>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-            <?php unset($_SESSION['result']);
-          } ?>
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="card border-primary shadow mb-4">
